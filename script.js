@@ -1,4 +1,14 @@
 const weddingDate = new Date("2026-10-23T09:00:00+07:00").getTime();
+const timer = setInterval(updateCountdown, 1000);
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        entry.target.classList.toggle('show', entry.isIntersecting);
+    });
+}, {
+    threshold: 0.2
+});
+
+document.querySelectorAll('.slide').forEach((el) => observer.observe(el));
 
 function updateCountdown(){
     const timeLeft = weddingDate - Date.now();
@@ -16,4 +26,8 @@ function updateCountdown(){
 }
 
 updateCountdown();
-const timer = setInterval(updateCountdown, 1000);
+
+
+window.addEventListener("scroll", () => {
+  document.querySelector(".navbar").classList.toggle("scrolled", window.scrollY > 50);
+});

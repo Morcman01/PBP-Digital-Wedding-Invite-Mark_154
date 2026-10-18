@@ -1,41 +1,109 @@
-body{
-    background-image: url(./images/bgNikah1.jpg);
+/* home section background */
+.home-section {
+    display: flow-root;
+    background-image:
+        linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+        url(./images/bgNikah1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center; 
-    background-attachment: fixed; 
-    background-color: #cccccc; 
+    background-position: center;
+    background-color: #090909;
+}
+
+.navbar {
+    position: fixed;      
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: transparent;
+    transition: background-color 0.3s;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 /* bagian nvabar */
-.navbar-translucent{
-    background-color: rgba(0,0,0,0.2);
-}
-
 .navbar-brand {
   font-size: 1.5rem;
-  font-family: 'Great Vibes', serif;
+  font-family: serif;
+  font-style: italic;
+}
+
+.navbar.scrolled {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-bottom: transparent;
 }
 
 .navbar-nav .nav-link {
   font-size: 1.25rem;
-  font-family: 'Emilys Candy', serif;
+  font-family: serif;
 }
 
 
-/* bagian main container */
+/* homepage container */
 .cont1{
-    background-color: rgba(0,0,0,0.2);
+    background-color: transparent;
+    min-height: 100vh;
 }
 
-
-/* bagian main header */
+/* homepage contents */
 .head1{
     font-family: "Italianno", cursive; 
     font-size: 6.5rem;
+    margin-top: 250px;
 }
 
 .head2{
     font-size: 1.25rem;
     font-family: "Emilys Candy", serif;
+    margin-bottom: 50px;
+}
+
+.head3{
+    margin-top: 40px;
+}
+
+.button1{
+    font-size: 1.2rem;
+    margin-top: 30px;
+    margin-bottom: 75px;
+    border: none;
+    
+}
+.button1:hover{
+    background-color: rgba(232, 232, 232, 0.374);
+    color: black;
+}
+
+hr{
+    border-top: 3px solid rgba(255,255,255,0.5);
+}
+
+
+/* bagian our stories */
+.stories{
+    padding: 4rem 0;
+    background-color: #091e039a;
+    border-top: white solid 2px;
+    overflow-x: hidden
+}
+
+.slide {
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.slide.from-left  {transform: translateX(-120px);}
+.slide.from-right {transform: translateX(120px);}
+
+.slide.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#story-head1{
+    margin-bottom: 40px;
+}
+
+.card-group{
+    display: flex;
 }
