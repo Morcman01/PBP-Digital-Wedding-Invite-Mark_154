@@ -1,11 +1,17 @@
 const weddingDate = new Date("2026-10-23T09:00:00+07:00").getTime();
 const timer = setInterval(updateCountdown, 1000);
+const rsvpForm = document.getElementById('rsvpForm');
+const guestGroup = document.getElementById('guestGroup');
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         entry.target.classList.toggle('show', entry.isIntersecting);
     });
 }, {
     threshold: 0.2
+});
+
+window.addEventListener("scroll", () => {
+  document.querySelector(".navbar").classList.toggle("scrolled", window.scrollY > 50);
 });
 
 document.querySelectorAll('.slide').forEach((el) => observer.observe(el));
@@ -27,7 +33,21 @@ function updateCountdown(){
 
 updateCountdown();
 
+rsvpForm.addEventListener('submit', e => {
+    e.preventDefault();
+    rsvpForm.classList.add('was-validated');
+    if (!rsvpForm.checkValidity()) return;
 
-window.addEventListener("scroll", () => {
-  document.querySelector(".navbar").classList.toggle("scrolled", window.scrollY > 50);
+    const data = {
+        name: document.getElementById('rsvpName').value,
+        email: document.getElementById('rsvpEmail').value,
+        phone: document.getElementById('rsvpPhone').value, 
+        attending: document.querySelector('input[name="attending"]:checked').value,
+        guests: document.getElementById('rsvpGuests').value,
+        message: document.getElementById('rsvpMessage').value
+    };
+    console.log(data);
+
+    rsvpForm.style.display = 'none';
+    document.getElementById('rsvpThanks').style.display = 'block';
 });
