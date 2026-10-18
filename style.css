@@ -188,10 +188,9 @@ hr{
 }
 
 .rsvp-cont option{
-    color: black;   /* keeps dropdown options readable */
+    color: black;   
 }
 
-/* button matches your .button1 */
 .rsvp-cont .btn-dark{
     background: white;
     color: black;
